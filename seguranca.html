@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script>
+    function pulaLinha() {
+        document.write("<br><hr><br>");
+    }
+
+    function mostra(frase) {
+        document.write("<big>" + frase + "</big>");
+        pulaLinha();
+    }
+
+    var idadeDoCliente = prompt("Qual é a sua idade?");
+    if (idadeDoCliente < 18) {
+        var senha = prompt("Qual é a senha?");
+    }
+    if (idadeDoCliente >= 18 || senha == "SalciFufu") {
+        mostra("Pode entrar!");
+    }
+</script>
