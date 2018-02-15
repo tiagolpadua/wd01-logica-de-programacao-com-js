@@ -1,0 +1,15 @@
+<meta charset="UTF-8">
+<script>
+    function mostra(frase) {
+        document.write(frase + "<br>");
+    }
+
+    var anoDeCopa = 1930;
+
+    anoLimite = prompt("Qual é o ano limite?");
+
+    while(anoDeCopa <= anoLimite) {
+        mostra(anoDeCopa + " tem copa!");
+        anoDeCopa = anoDeCopa + 4;
+    }
+</script>
