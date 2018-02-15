@@ -1,0 +1,14 @@
+<script>
+    function mostra(frase) {
+        document.write(frase + "<br>");
+    }
+
+    var multiplicador = 1;
+
+    var numero = prompt("Digite o número que deseja a tabuada:");
+
+    while(multiplicador <= 10) {
+        mostra(numero + " vezes " + multiplicador + " é igual a " + numero * multiplicador);
+        multiplicador = multiplicador + 1;
+    }
+</script>
