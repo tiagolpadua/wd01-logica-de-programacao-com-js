@@ -1,0 +1,41 @@
+<input type="text" id="numero" />
+<input type="submit" value="Adicione e verifique no Bingo!" id="verificar"/>
+<script>
+    var sorteados = [];
+    function adicionarSorteado() {
+        var numero = document.getElementById("numero").value;
+        for(var i = 0; i < sorteados.length; i = i + 1) {
+            if(sorteados[i] == numero) {
+                alert("Numero já sorteado!");
+                return;
+            }
+        }
+        sorteados.push(numero);
+        document.getElementById("numero").value = "";
+        console.log(sorteados);
+        if (sorteados.length == 6) {
+            jogar();
+        }
+    }
+    var botao = document.getElementById("verificar");
+    botao.onclick = adicionarSorteado;
+
+    function jogar() {
+        var jogados = [];
+
+        while(jogados.length < 6) {
+            jogados.push(prompt("Digite um número jogado:"));        
+        }
+
+        var acertos = 0;
+        for(var i = 0; i < sorteados.length; i++) {
+            for(var j = 0; j < jogados.length; j++) {
+                if(sorteados[i] == jogados[j]) {
+                    acertos++;
+                }
+            }
+        }
+
+        alert('O número de acertos foi: ' + acertos);
+    }
+</script>
