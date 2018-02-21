@@ -1,0 +1,28 @@
+<script>
+    function troca(a, b) {
+        var temp = a;
+        a = b;
+        b = a;
+    }
+
+    var x = 1;
+    var y = 2;
+    troca(x, y);
+
+    document.write("x: " + x + "<br>");
+    document.write("y: " + y + "<br>");
+
+    function mudaNome(ave) {
+        ave.nome = "Tio Patinhas";
+    }
+
+    var pato = {
+        nome: "Donald"
+    }
+
+    mudaNome(pato);
+
+    document.write(pato.nome);
+
+
+</script>

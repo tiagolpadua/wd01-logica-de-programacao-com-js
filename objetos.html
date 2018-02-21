@@ -1,0 +1,49 @@
+<script>
+    // Existem duas maneiras de se criar objetos no JS
+    var obj = new Object();
+    var obj = {};
+
+    // Você pode adicionar propriedades
+    var pato = {};
+    pato.nome = "donald";
+
+    // E visualizar o objeto como um todo
+    console.log(pato);
+    console.table(pato);
+
+    // Ou somente uma propriedade
+    console.log(pato.nome);
+
+    // O objeto também pode ter métodos
+    pato.grasna = function() {
+        console.log("Quá!");
+    }
+
+    // Estes métodos podem ser acionados
+    pato.grasna();
+
+    // Podemos também fazer a definição do objeto com suas propriedades e métodos
+    var pata = {
+        nome: "Margarida",
+        grasna: function() {
+            console.log("Qué!");
+        }
+    }
+
+    // Veja como o grasno da pata é diferente do pato
+    pata.grasna();
+
+    // Um objeto também pode conter outros objetos
+    pato.namorada = pata;
+
+    console.log(pato);
+
+    // Também podemos acessar uma propriedade de um objeto pelo texto do nome da propriedade
+    console.log(pato["nome"]);
+
+    // Também podemos remover uma propriedade de um objeto
+    delete pato.nome;
+
+    console.log(pato);
+
+</script>

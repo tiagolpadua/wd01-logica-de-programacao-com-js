@@ -1,0 +1,13 @@
+<script>
+    function exponencial(numero, expoente) {
+        if (expoente === 0) {
+            return 1;
+        }
+        else {
+            return numero * exponencial(numero, expoente - 1);
+        }
+    }
+
+    var result = exponencial(2, 3);
+    document.write(result);
+</script>
