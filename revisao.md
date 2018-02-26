@@ -83,3 +83,21 @@ console.log(soma(1, 2));
 - jsfiddle.net
 - github
 - prompt
+
+## Dia 3
+- if - uma estrutura de decisão
+
+```js
+if (numero == 3) {
+    alert("Número é o 3");
+} else {
+    alert("Número não o 3");
+}
+```
+- parseInt - convertendo texto em número
+```js
+var x = parseInt("3");
+```
+- > < <= >= == !=
+- && e || 
+- recursão - quando uma função chama ela mesma

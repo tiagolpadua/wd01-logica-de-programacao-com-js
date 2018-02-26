@@ -1,0 +1,28 @@
+<input type="text" id="dia" />
+<input type="submit" id="consultar" value="Consultar" />
+<script>
+    document.getElementById("consultar").onclick = consultar;
+
+    function consultar() {
+        var dia = document.getElementById("dia").value;
+        switch (dia) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+                alert("Dia de trabalho :-(");
+                break;
+
+            case "6":
+            case "0":
+                alert("Dia do churras :-)");
+                break;
+
+            default:
+                alert("Dia não reconhecido: " + dia);
+                break;
+        }
+    }
+
+</script>

@@ -6,11 +6,11 @@
 
     do {
         entrada = prompt("Digite a idade ou tecle enter para terminar:")
-        if (entrada) {
+        if (entrada != "") {
             somaDeIdades = somaDeIdades + parseInt(entrada);
             contador++;
         }
-    } while (entrada);
+    } while (entrada != "");
 
     var media = somaDeIdades / contador;
     alert("A média é: " + media);
