@@ -1,9 +1,14 @@
 <script>
-    var numero = 5;
-    var resultado = 1;
-    
-    for (var i = 1; i <= numero; i++) {
-        resultado *= i;
+    function fatorial(n) {
+        var resultado = 1;
+
+        for (var i = 1; i <= numero; i++) {
+            resultado *= i;
+        }
+        return resultado;
     }
-    document.write(resultado);
+
+    var numero = 5;
+    document.write(fatorial(numero));
+
 </script>

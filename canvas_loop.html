@@ -1,0 +1,51 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+    function desenhaQuadrado(x, y, cor) {
+        var tela = document.getElementById("tela");
+        var c = tela.getContext("2d");
+        c.fillStyle = cor;
+        c.fillRect(x, y, 50, 50);
+
+        c.strokeStyle = "black";
+        c.strokeRect(x, y, 50, 50);
+    }
+
+    function desenhaQuadradoVerde(x, y) {
+        desenhaQuadrado(x, y, "green");
+        // var tela = document.getElementById("tela");
+        // var c = tela.getContext("2d");
+        // c.fillStyle = "green";
+        // c.fillRect(x, y, 50, 50);
+
+        // c.strokeStyle = "black";
+        // c.strokeRect(x, y, 50, 50);
+    }
+
+    function desenhaQuadradoVermelho(x, y) {
+        desenhaQuadrado(x, y, "red");
+        // var tela = document.getElementById("tela");
+        // var c = tela.getContext("2d");
+        // c.fillStyle = "red";
+        // c.fillRect(x, y, 50, 50);
+
+        // c.strokeStyle = "black";
+        // c.strokeRect(x, y, 50, 50);
+    }
+
+    function desenhaBolaAzul(x, y) {
+        var tela = document.getElementById("tela");
+        var c = tela.getContext("2d");
+        c.beginPath();
+        c.fillStyle = "blue";
+        c.arc(x + 25, y, 25, 0, 2 * 3.14);
+        c.fill();
+    }
+
+    for (var x = 0; x < 600; x = x + 50) {
+        desenhaQuadradoVerde(x, 0);
+        desenhaQuadradoVermelho(x, 50);
+        desenhaBolaAzul(x, 100);
+    }
+
+</script>
