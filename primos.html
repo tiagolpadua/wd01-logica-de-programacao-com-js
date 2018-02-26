@@ -1,0 +1,27 @@
+<script>
+    function ePrimo(numero) {
+        if (numero == 0 || numero == 1) {
+            return false;
+        }
+
+        for (var i = 2; i < numero; i++) {
+            if(numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    var primos = [];
+
+    for(var i = 1; i <= 100; i++) {
+        if (ePrimo(i)) {
+            // console.log(i);
+            primos.push(i);
+        }
+    }
+
+    console.log("A quantidade de primos entre 0 e 100 é: " + primos.length);
+    console.log("São eles:");
+    console.log(primos);
+</script>

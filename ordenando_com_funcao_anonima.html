@@ -1,0 +1,20 @@
+<script>
+    frutas = ["uva", "Maçã", "banana"];
+    console.log("Antes da ordenação:");
+    console.log(frutas);
+    frutas.sort(function (fruta1, fruta2) {
+        fruta1Maiuscula = fruta1.toUpperCase();
+        fruta2Maiuscula = fruta2.toUpperCase();
+        if (fruta1Maiuscula < fruta2Maiuscula) {
+            return -1;
+        }
+
+        if (fruta1Maiuscula > fruta2Maiuscula) {
+            return 1;
+        }
+
+        return 0;
+    });
+    console.log("Após a ordenação:");
+    console.log(frutas);
+</script>

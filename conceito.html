@@ -1,0 +1,36 @@
+<script>
+    var soma = 0;
+    var nota, media, conceito;
+    for(var i = 1; i <= 3; i++) {
+        nota = parseFloat(prompt("Digite a N" + i + " do aluno:"));
+        soma += nota * i;
+    }
+
+    media = soma / 6;
+
+    if (nota >= 9) {
+        conceito = "A";
+    } else if(nota >= 7.5 && nota < 9) {
+        conceito = "B";
+    } else if(nota >= 6 && nota < 7.5) {
+        conceito = "C";
+    } else {
+        conceito = "D";
+    }
+
+    switch (conceito) {
+        case "A":
+        case "B":
+            document.write("O aluno passou com média: " + media.toFixed(2) + " e conceito: " + conceito);
+            break
+
+        case "C":
+        case "D":
+            document.write("O aluno reprovou com média: " + media.toFixed(2) + " e conceito: " + conceito);
+            break;
+
+        default:
+            document.write("Algo inesperado ocorreu, média: " + media.toFixed(2) + " e conceito: " + conceito);
+    }
+
+</script>
