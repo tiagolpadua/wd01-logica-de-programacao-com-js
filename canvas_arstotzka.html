@@ -1,0 +1,19 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+    function desenhaQuadrado(x, y, cor) {
+        var tela = document.getElementById("tela");
+        var c = tela.getContext("2d");
+        c.fillStyle = cor;
+        c.fillRect(x, y, 100, 100);
+    }
+
+    var contador = 0;
+    var cores = ["red", "white", "red", "yellow", "blue", "white", "yellow"];
+    for (var linha = 0; linha < 4; linha++) {
+        for (var coluna = 0; coluna < 6; coluna++) {
+            desenhaQuadrado(coluna * 100, linha * 100, cores[contador % 7]);
+            contador++;
+        }
+    }
+</script>

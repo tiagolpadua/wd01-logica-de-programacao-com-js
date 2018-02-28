@@ -1,0 +1,46 @@
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var opcao;
+    var votacao = [0, 0, 0];
+    alert("Bem vindo ao painel de votação do VMB");
+    do {
+        opcao = parseInt(prompt("Escolha um cantor, ou tecle enter para encerrar a votação:\n" +
+            "1 - Jojo Todynho\n" +
+            "2 - Pabllo Vittar\n" +
+            "3 - Anitta"
+        ));
+        if (opcao) {
+            votacao[opcao - 1]++;
+        }
+    } while (opcao);
+
+    console.log(votacao);
+
+    mostra("Resultado:");
+
+    var maiorVotacao = votacao[0];
+    var ganhador = 0;
+    for (var i = 0; i < votacao.length; i++) {
+        if (votacao[i] > maiorVotacao) {
+            maiorVotacao = votacao[i];
+            ganhador = i;
+        }
+    }
+
+    if (ganhador == 0) {
+        mostra("Jojo Todynho!");
+    } else if (ganhador == 1) {
+        mostra("Pabllo Vittar!");
+    } else {
+        mostra("Anitta!");
+    }
+
+</script>

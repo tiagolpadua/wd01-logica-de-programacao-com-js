@@ -1,0 +1,47 @@
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function geraOpcoes(lista) {
+        var resultado = "";
+        for (var i = 0; i < lista.length; i++) {
+            resultado += (i + 1) + " - " + lista[i] + "\n";
+        }
+        return resultado;
+    }
+
+    var opcao;
+    var cantores = ["Jojo Todynho", "Pabllo Vittar", "Anitta"];
+    var votacao = [0, 0, 0];
+    alert("Bem vindo ao painel de votação do VMB");
+    do {
+        opcao = parseInt(prompt("Escolha um cantor, ou tecle enter para encerrar a votação:\n" +
+            geraOpcoes(cantores)
+        ));
+        if (opcao) {
+            votacao[opcao - 1]++;
+        }
+    } while (opcao);
+
+    console.log(votacao);
+
+    mostra("Resultado:");
+
+    var maiorVotacao = votacao[0];
+    var maisVotado = 0;
+    for (var i = 0; i < votacao.length; i++) {
+        if (votacao[i] > maiorVotacao) {
+            maiorVotacao = votacao[i];
+            maisVotado = i;
+        }
+    }
+
+    mostra(cantores[maisVotado] + " com " + maiorVotacao + " votos!");
+
+</script>

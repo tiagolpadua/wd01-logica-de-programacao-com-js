@@ -1,0 +1,57 @@
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function geraOpcoes(lista) {
+        var resultado = "";
+        for (var i = 0; i < lista.length; i++) {
+            resultado += (i + 1) + " - " + lista[i].nome + "\n";
+        }
+        return resultado;
+    }
+
+    var opcao;
+    var cantores = [
+        {
+            nome: "Jojo Todynho",
+            votos: 0
+        },
+        {
+            nome: "Pabllo Vittar", votos: 0
+        },
+        {
+            nome: "Anitta", votos: 0
+        }];
+
+    alert("Bem vindo ao painel de votação do VMB");
+    do {
+        opcao = parseInt(
+            prompt("Escolha um cantor, ou tecle enter para encerrar a votação:\n" + geraOpcoes(cantores)
+        ));
+        if (opcao) {
+            cantores[opcao - 1].votos++;
+        }
+    } while (opcao);
+
+    console.log(cantores);
+
+    mostra("Resultado:");
+
+    var maiorVotacao = cantores[0].votos;
+    var maisVotado = 0;
+    for (var i = 0; i < cantores.length; i++) {
+        if (cantores[i].votos > maiorVotacao) {
+            maiorVotacao = cantores[i].votos;
+            maisVotado = i;
+        }
+    }
+
+    mostra(cantores[maisVotado].nome + " com " + cantores[maisVotado].votos + " votos!");
+
+</script>

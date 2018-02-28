@@ -1,0 +1,70 @@
+<!-- Mesma lógica do bingo mas o sorteio é feito automaticamente -->
+<!-- Adicionalmente ordena-se o vetor de sorteados -->
+<input type="submit" value="Jogue no Bingo!" id="jogar" />
+<script>
+    var sorteados = [];
+    var numero;
+
+    while (sorteados.length < 6) {
+        numero = Math.round(Math.random() * 60);
+        if (!contem(sorteados, numero)) {
+            sorteados.push(numero);
+        }
+    }
+
+    // function compara(x, y) {
+    //     if (x > y) {
+    //         return 1;
+    //     } else if (x == y) {
+    //         return 0;
+    //     } else {
+    //         return -1;
+    //     }
+    // }
+
+    // sorteados.sort(compara);
+
+    // sorteados.sort(function (x, y) {
+    //     if (x > y) {
+    //         return 1;
+    //     } else if (x == y) {
+    //         return 0;
+    //     } else {
+    //         return -1;
+    //     }
+    // });
+
+    console.log(sorteados);
+
+    function contem(lista, valor) {
+        for (var i = 0; i < lista.length; i++) {
+            if (lista[i] == numero) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    var botao = document.getElementById("jogar");
+    botao.onclick = jogar;
+
+    function jogar() {
+        var jogados = [];
+
+        while (jogados.length < 6) {
+            jogados.push(prompt("Digite um número jogado:"));
+        }
+
+        var acertos = 0;
+        for (var i = 0; i < sorteados.length; i++) {
+            for (var j = 0; j < jogados.length; j++) {
+                if (sorteados[i] == jogados[j]) {
+                    acertos++;
+                }
+            }
+        }
+
+        alert("O número de acertos foi: " + acertos);
+    }
+
+</script>

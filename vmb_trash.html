@@ -1,0 +1,64 @@
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    alert("Bem vindo ao painel de votação do VMB");
+    var categorias = [
+        {
+            titulo: "Artista Revelação",
+            opcoes: [
+                { nome: "Jojo Todynho", votos: 0 },
+                { nome: "Pabllo Vittar", votos: 0 },
+ 2               { nome: "MC Kevinho", votos: 0 }
+            ]
+        },
+        {
+            titulo: "Artista Revelação",
+            opcoes: [{ nome: "foo", votos: 0 }]
+        },
+        {
+            titulo: "Artista Revelação",
+            opcoes: [{ nome: "foo", votos: 0 }]
+        }
+    ];
+    var artistaRevelacao = [0, 0, 0];
+    var hitDoAno = [0, 0, 0];
+    var melhorCoreografia = [0, 0, 0];
+
+    do {
+        categoria = parseInt(prompt("Escolha a categoria, ou tecle enter para encerrar a votação:\n" +
+            "1 - Artista Revelação\n" +
+            "2 - Hit do ano\n" +
+            "3 - Melhor Coreografia"));
+        if (categoria == 1) {
+            var voto = parseInt(prompt("Artista Revelação:\n1 - Jojo Todynho\n2 - Pabllo Vittar\n3 - MC Kevinho"));
+            if (voto) {
+                artistaRevelacao[voto - 1] += 1;
+            }
+        }
+    } while (categoria);
+
+    console.log(artistaRevelacao);
+
+    document.mostra("Resultado");
+    document.mostra("Artista Revelação:");
+
+    function getIndiceGanhador(lista) {
+        var votos = lista[0];
+        var ganhador = 0;
+        for (var i = 0; i < lista.length; i++) {
+            if (lista[i] > votos) {
+                votos = lista[i];
+                ganhador = i;
+            }
+        }
+        return ganhador;
+    }
+
+</script>
