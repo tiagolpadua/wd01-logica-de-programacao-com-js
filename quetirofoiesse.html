@@ -1,0 +1,79 @@
+<canvas id="tela" width="600" height="400"></canvas>
+<script>
+    var tela = document.getElementById("tela");
+    var c = tela.getContext("2d");
+    var pontos = 0;
+
+    function desenhaAlvo(x, y) {
+        var raio = 40;
+        cor("white");
+        circulo(x, y, raio);
+        cor("red");
+        circulo(x, y, raio - 10);
+        cor("white");
+        circulo(x, y, raio - 20);
+        cor("red");
+        circulo(x, y, raio - 30);
+    }
+
+    function desenhaPontuacao() {
+        c.beginPath();
+        c.fillStyle = "black";
+        c.font = "16px Arial";
+        c.fillText("Pontuação: " + pontos, 10, 20);
+        c.fill();
+        c.closePath();
+    }
+
+    function circulo(x, y, raio) {
+        c.beginPath();
+        c.arc(x, y, raio, 0, 2 * 3.14);
+        c.fill();
+    }
+
+    function cor(cor) {
+        c.fillStyle = cor;
+    }
+
+    var alvoX;
+    var alvoY;
+    function desenha() {
+        limpa();
+        alvoX = sorteia(600);
+        alvoY = sorteia(400);
+        desenhaAlvo(alvoX, alvoY);
+        desenhaPontuacao();
+    }
+
+    function sorteia(numero) {
+        return Math.round(Math.random() * numero)
+    }
+
+    function limpa() {
+        c.clearRect(0, 0, 600, 400);
+        cor("gray");
+        c.fillRect(0, 0, 600, 400);
+    }
+
+    function tiro(evento) {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        var xdist = x - alvoX;
+        var ydist = y - alvoY;
+
+        var dist = Math.sqrt(xdist * xdist + ydist * ydist);
+        if (dist < 40) {
+            pontos++;
+            console.log("Acertou!");
+        } else {
+            console.log("Errou...");
+        }
+    }
+
+    tela.onclick = tiro;
+
+    desenha();
+    setInterval(desenha, 1000);
+
+</script>

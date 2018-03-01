@@ -11,6 +11,8 @@
     c.fillStyle = "blue";
     c.fillRect(0, 50, 50, 50);
 
+    var mouseDown = false;
+
     var corEscolhida;
 
     function clicouNoCanvas(evento) {
@@ -31,4 +33,19 @@
     }
 
     tela.onclick = clicouNoCanvas;
+
+    tela.onmousedown = function () {
+        mouseDown = true;
+    };
+
+    tela.onmouseup = function () {
+        mouseDown = false;
+    };
+
+    tela.onmousemove = function (evento) {
+        if (mouseDown) {
+            clicouNoCanvas(evento);
+        }
+    }
+
 </script>
