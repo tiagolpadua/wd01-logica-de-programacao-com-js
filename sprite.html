@@ -1,0 +1,62 @@
+<!--
+    https://eloquentjavascript.net/17_canvas.html
+    http://bit.ly/wd01-sprite
+-->
+<canvas id="tela" width="600" height="400"></canvas>
+<script>
+    var tela = document.getElementById("tela");
+    var c = tela.getContext("2d");
+
+    var img = document.createElement("img");
+    img.src = "player.png";
+
+    // 1
+    // c.drawImage(img, 0, 0);
+
+    // 2
+    // img.addEventListener("load", function () {
+    //     c.drawImage(img, 0, 0);
+    // });
+
+    // 3
+    // var spriteW = 48, spriteH = 60;
+    // img.addEventListener("load", function () {
+    //     c.drawImage(img, 0, 0, spriteW, spriteH, 0, 0, spriteW, spriteH);
+    // });
+
+    // 4
+    // var spriteW = 48, spriteH = 60;
+    // img.addEventListener("load", function () {
+    //     c.drawImage(img, 3 * spriteW, 0, spriteW, spriteH, 0, 0, spriteW, spriteH);
+    // });
+
+    // 5
+    // var x = 0;
+    // setInterval(function () {
+    //     x++;
+    //     console.log(x);
+    // }, 100);
+
+    // 6
+    // var x = 0;
+    // setInterval(function () {
+    //     x = (x + 1) % 8;
+    //     console.log(x);
+    // }, 100);
+
+    // 7
+    var spriteW = 48, spriteH = 60;
+    img.addEventListener("load", function () {
+        var ciclo = 0;
+        setInterval(function () {
+            c.clearRect(0, 0, spriteW, spriteH);
+            c.drawImage(img,
+                // source rectangle
+                ciclo * spriteW, 0, spriteW, spriteH,
+                // destination rectangle
+                0, 0, spriteW, spriteH);
+            ciclo = (ciclo + 1) % 8;
+        }, 120);
+    });
+
+</script>

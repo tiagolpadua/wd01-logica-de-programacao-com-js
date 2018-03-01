@@ -20,3 +20,6 @@
 - arc
 
 Roteiro dia 7
+- Bandeira do Brasil
+- Switch
+- 
