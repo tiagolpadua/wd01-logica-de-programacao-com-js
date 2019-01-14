@@ -1,0 +1,44 @@
+<!-- http://jsfiddle.net/sz4a0t8c/ -->
+<script>
+    function pulaLinha() {
+        document.write("<br><hr><br>");
+    }
+
+    function mostra(frase) {
+        document.write("<big>" + frase + "</big>");
+        pulaLinha();
+    }
+
+    function calculaPontos(vitorias, empates, derrotas) {
+        return (vitorias * 3) + empates - derrotas;
+    }
+
+    function obtemPontuacao(nomeTime) {
+        var vitorias = parseInt(prompt("Quantos jogos o " + nomeTime + " venceu?"));
+        var empates = parseInt(prompt("Quantos jogos o " + nomeTime + " empatou?"));
+        var derrotas = parseInt(prompt("Quantos jogos o " + nomeTime + " perdeu?"));
+        var pontos = calculaPontos(vitorias, empates, derrotas);
+        return pontos;
+    }
+
+    var nossoTime = prompt("Digite o nome do nosso time");
+    var nomeAdv = prompt("Digite o nome do time adversário");
+
+    var pontos = obtemPontuacao(nossoTime);
+    var pontosAdversario = obtemPontuacao(nomeAdv);
+
+    mostra("Nosso time tem " + pontos + " pontos");
+    mostra("O time adversário tem " + pontosAdversario + " pontos");
+    
+    if (pontos > pontosAdversario) {
+        mostra("Nosso time está indo MELHOR que o adversário");
+    }
+
+    if (pontos < pontosAdversario) {
+        mostra("Nosso time está indo PIOR que o adversário");
+    }
+
+    if (pontos == pontosAdversario) {
+        mostra("Nosso time está EMPATADO com o adversário");
+    }
+</script>
